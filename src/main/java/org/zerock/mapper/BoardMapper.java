@@ -5,7 +5,7 @@ import java.util.List;
 import org.zerock.domain.BoardVO;
 
 public interface BoardMapper {
-	// @Select("select * from sys.tbl_board where bno>0")
+//	@Select("select * from sys.tbl_board where bno>0")
 	public List<BoardVO> getList();
 
 	public void insert(BoardVO board);

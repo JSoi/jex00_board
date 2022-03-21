@@ -19,7 +19,7 @@ public class BoardMapperTests {
 	@Setter(onMethod_ = @Autowired)
 	private BoardMapper mapper;
 
-//	@Test
+	@Test
 	public void testGetList() {
 		mapper.getList().forEach(board -> log.info(board));
 	}
@@ -69,7 +69,7 @@ public class BoardMapperTests {
 		log.info(log);
 	}
 
-	@Test
+//	@Test
 	public void myTest() {
 		BoardVO board = mapper.read(5L); // 게시물 번호
 		log.info(board);

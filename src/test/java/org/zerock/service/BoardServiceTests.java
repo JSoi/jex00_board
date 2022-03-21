@@ -57,4 +57,9 @@ public class BoardServiceTests {
 		board.setTitle("제목 수정합니다");
 		log.info("MODIFY RESULT : " + service.modify(board));
 	}
+
+//	@Test
+	public void testGetList() {
+		service.getList().forEach(board -> log.info(board));
+	}
 }

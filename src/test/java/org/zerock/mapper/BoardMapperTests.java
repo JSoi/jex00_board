@@ -58,7 +58,7 @@ public class BoardMapperTests {
 
 //	@Test
 	public void testDelete() {
-		log.info("DELETE COUNT : " + mapper.delete(3L));
+		log.info("DELETE COUNT : " + mapper.delete(100L));
 	}
 
 //	@Test
@@ -81,11 +81,19 @@ public class BoardMapperTests {
 		List<BoardVO> list = mapper.getListWithPaging(cri);
 		list.forEach(board -> log.info(board));
 	}
-	
 
 //	@Test
 	public void myTest() {
 		BoardVO board = mapper.read(5L); // 게시물 번호
 		log.info(board);
+	}
+
+	@Test
+	public void testSearch() {
+		Criteria cri = new Criteria();
+		cri.setKeyword("새로");
+		cri.setKeyword("TC");
+		List<BoardVO> list = mapper.getListWithPaging(cri);
+		list.forEach(board -> log.info(board));
 	}
 }

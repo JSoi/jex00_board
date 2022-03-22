@@ -45,7 +45,7 @@ public class BoardServiceTests {
 
 //	@Test
 	public void testDelete() {
-		log.info("remove....... " + service.remove(5L));
+		log.info("remove....... " + service.remove(6L));
 	}
 
 //	@Test

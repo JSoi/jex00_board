@@ -12,43 +12,40 @@
 	</div>
 </div>
 
-<div class="row">
-	<div class="col-lg=12">
-		<div class="panel panel-default"></div>
-		<div class="panel-heading">Board Read Page</div>
-		<div class="panel-body">
+<div class="col-lg=12">
+	<div class="panel panel-default"></div>
+	<div class="panel-heading">Board Read Page</div>
+	<div class="panel-body">
 
-			<form role="form" action="/board/register" method="post">
-				<div class="form-group">
-					<label>Bno</label> <input class="form-control" name='bno'
-						value='<c:out value="${board.bno }"/>' readonly="readonly">
-				</div>
-				<div class="form-group">
-					<label>Title</label> <input class="form-control" name='title'
-						value='<c:out value="${board.title }"/>' readonly="readonly">
-				</div>
-				<div class="form-group">
-					<label>Text Area</label>
-					<textarea class="form-control" rows"
-						="3" name='content'
-						readonly="readonly">
-					<c:out value="${board.content}"></c:out></textarea>
-				</div>
-				<div class="form-group">
-					<label>Writer</label> <input class="form-control" name='writer'
-						value='<c:out value="${board.writer }"/>' readonly="readonly">
-				</div>
-				
-				<button data-oper='modify' class="btn btn-default">Modify</button>
-				<button data-oper='list' class="btn btn-info">List</button>
-			</form>
+		<div class="form-group">
+			<label>Bno</label> <input class="form-control" name='bno'
+				value='<c:out value="${board.bno }"/>' readonly="readonly">
 		</div>
+		<div class="form-group">
+			<label>Title</label> <input class="form-control" name='title'
+				value='<c:out value="${board.title }"/>' readonly="readonly">
+		</div>
+		<div class="form-group">
+			<label>Text Area</label>
+			<textarea class="form-control" rows="3" name='content'readonly="readonly"><c:out value="${board.content}"></c:out></textarea>
+		</div>
+		<div class="form-group">
+			<label>Writer</label> <input class="form-control" name='writer'
+				value='<c:out value="${board.writer }"/>' readonly="readonly">
+		</div>
+
+		<button data-oper='modify' class="btn btn-default"
+			onclick="location.href='/board/modify?bno=<c:out value="${board.bno}"/>'">Modify</button>
+		<button data-oper='list' class="btn btn-info"
+			onclick="location.href='/board/list'">List</button>
 	</div>
-	<form id='operForm' action="/board/modify" method="get">
-		<input type='hidden' id='bno' name='bno'
-			value='<c:out value="${board.bno}"/>'>
-	</form>
 </div>
+<form id='operForm' action="/board/modify" method="get">
+	<input type='hidden' id='bno' name='bno'
+		value='<c:out value="${board.bno}"/>'>
+		<input type ='hidden' name='pageNum' value='c:out value="${cri.pageNum}"/>'>
+		<input type ='hidden' name='amount' value='c:out value="${cri.amount}"/>'>
+</form>
 <%@include file="../includes/footer.jsp"%>
 <script type="text/javascript">
 $(document).ready(function(){

@@ -39,6 +39,11 @@
 				value='<c:out value="${board.bno}"/>'> <input type='hidden'
 				name='pageNum' value='<c:out value="${cri.pageNum}"/>'> <input
 				type='hidden' name='amount' value='<c:out value="${cri.amount}"/>'>
+				<input
+				type='hidden' name='keyword' value='<c:out value="${cri.keyword}"/>'>
+				<input
+				type='hidden' name='type' value='<c:out value="${cri.type}"/>'>
+				
 			<button data-oper='modify' class="btn btn-default"
 				onclick="location.href='/board/modify?bno=<c:out value="${board.bno}"/>'">Modify</button>
 			<button data-oper='list' class="btn btn-info"

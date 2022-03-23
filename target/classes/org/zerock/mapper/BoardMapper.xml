@@ -8,10 +8,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 
-	<select id="getTotalCount" resultType="int">
-		select count(*) from
-		tbl_board where bno>0
-	</select>
 
 	<sql id="criteria">
 		<trim prefix="(" suffix=") AND " prefixOverrides="OR">
@@ -33,7 +29,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</trim>
 	</sql>
 
-
 	<select id="getListWithPaging"
 		resultType="org.zerock.domain.BoardVO">
 <![CDATA[
@@ -47,11 +42,11 @@ from
 		tbl_board
 	where
 ]]>
-		<include refid="criteria"></include>
+	<include refid="criteria"></include>
 	<![CDATA[
 		rownum <= #{pageNum} * #{amount}
 		)
-	where rn > (#{pageNum}-1) * #{amount}
+	where rn > (#{pageNum} -1) * #{amount}
 	]]>
 	</select>
 
@@ -61,6 +56,13 @@ from
 		values(seq_board.NEXTVAL, #{title}, #{content}, #{writer})
 	</insert>
 
+
+	<select id="getTotalCount" resultType="int">
+		select count(*) from
+		tbl_board where
+		<include refid="criteria"></include>
+		bno>0
+	</select>
 
 	<insert id="insertSelectKey">
 		<selectKey keyProperty="bno" order="BEFORE"

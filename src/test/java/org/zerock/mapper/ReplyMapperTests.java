@@ -18,7 +18,7 @@ import lombok.extern.log4j.Log4j;
 @ContextConfiguration(classes = { org.zerock.config.RootConfig.class })
 @Log4j
 public class ReplyMapperTests {
-	
+
 	@Setter(onMethod_ = { @Autowired })
 	private ReplyMapper mapper;
 
@@ -57,12 +57,19 @@ public class ReplyMapperTests {
 		int count = mapper.update(vo);
 		log.info("-------------UPDATE COUNT -------------- " + count);
 	}
-	
-	@Test
+
+//	@Test
 	public void testList() {
 		Criteria cri = new Criteria();
 		List<ReplyVO> replies = mapper.getListWithPaging(cri, bnoArr[0]);
-		replies.forEach(reply->log.info(reply));
+		replies.forEach(reply -> log.info(reply));
+	}
+
+	@Test
+	public void testList2() {
+		Criteria cri = new Criteria(2, 4);
+		List<ReplyVO> replies = mapper.getListWithPaging(cri, 205L);
+		replies.forEach(reply -> log.info(reply));
 	}
 
 //	@Test

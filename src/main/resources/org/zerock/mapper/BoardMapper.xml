@@ -33,11 +33,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		resultType="org.zerock.domain.BoardVO">
 <![CDATA[
 select
-bno, title, content, writer, regdate, updatedate
+bno, title, content, writer, regdate, updatedate, replycnt
 from
 	(
 	select /*+INDEX_DESC(tbl_board pk_board) */
-		rownum rn, bno, title, content, writer, regdate, updatedate
+		rownum rn, bno, title, content, writer, regdate, updatedate, replycnt
 	from
 		tbl_board
 	where
@@ -91,5 +91,7 @@ from
 		updateDate = sysdate where bno =
 		#{bno}
 	</update>
-
+	<update id="updateReplyCnt">
+	update tbl_board set replycnt = replycnt + #{amount} where bno= #{bno}
+	</update>
 </mapper>

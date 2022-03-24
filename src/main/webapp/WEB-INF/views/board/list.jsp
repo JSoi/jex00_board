@@ -40,7 +40,9 @@
 						<tr>
 							<td><c:out value="${board.bno} " /></td>
 							<td><a class='move' href='<c:out value="${board.bno}"/>'>
-									<c:out value="${board.title}" />
+									<c:out value="${board.title}" />  <b>[<c:out
+											value="${board.replyCnt}" />]
+								</b>
 							</a></td>
 							<td><c:out value="${board.writer} " /></td>
 							<td><fmt:formatDate pattern="yyyy-MM-dd"
@@ -130,7 +132,8 @@
 
 				<div class="modal-body">처리가 완료되었습니다.</div>
 				<div class="modal-footer">
-					<button type="button" id="btnClose" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="button" id="btnClose" class="btn btn-default"
+						data-dismiss="modal">Close</button>
 					<button type="button" class="btn btn-primary">Save changes</button>
 				</div>
 			</div>

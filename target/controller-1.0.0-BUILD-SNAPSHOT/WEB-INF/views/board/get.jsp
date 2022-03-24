@@ -34,21 +34,24 @@
 			<label>Writer</label> <input class="form-control" name='writer'
 				value='<c:out value="${board.writer }"/>' readonly="readonly">
 		</div>
-
-		<button data-oper='modify' class="btn btn-default"
-			onclick="location.href='/board/modify?bno=<c:out value="${board.bno}"/>&pageNum=<c:out value="${cri.pageNum}"/>&amount=<c:out value="${cri.amount}"/>'">Modify</button>
-		<button data-oper='list' class="btn btn-info"
-			onclick="location.href='/board/list?pageNum=<c:out value="${cri.pageNum}"/>&amount=<c:out value="${cri.amount}"/>&bno=<c:out value="${board.bno}"/>'">List</button>
+		<form id='operForm' action="/board/modify" method="get">
+			<input type='hidden' id='bno' name='bno'
+				value='<c:out value="${board.bno}"/>'> <input type='hidden'
+				name='pageNum' value='<c:out value="${cri.pageNum}"/>'> <input
+				type='hidden' name='amount' value='<c:out value="${cri.amount}"/>'>
+				<input
+				type='hidden' name='keyword' value='<c:out value="${cri.keyword}"/>'>
+				<input
+				type='hidden' name='type' value='<c:out value="${cri.type}"/>'>
+				
+			<button data-oper='modify' class="btn btn-default"
+				onclick="location.href='/board/modify?bno=<c:out value="${board.bno}"/>'">Modify</button>
+			<button data-oper='list' class="btn btn-info"
+				onclick="location.href='/board/list?pageNum=<c:out value="${cri.pageNum}"/>'">List</button>
+		</form>
 	</div>
-	<form id='operForm' action="/board/modify" method="get">
-		<input type='hidden' id='bno' name='bno'
-			value='<c:out value="${board.bno}"/>'> <input type='hidden'
-			name='pageNum' value='<c:out value="${cri.pageNum}"/>'> <input
-			type='hidden' name='amount' value='<c:out value="${cri.amount}"/>'>
-	</form>
-	
 </div>
-
+<script type="text/javascript" src="../resouces/js/reply.js"></script>
 <%@include file="../includes/footer.jsp"%>
 <script type="text/javascript">
 $(document).ready(function() {

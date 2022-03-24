@@ -20,7 +20,7 @@
 	class="fas fa-angle-up"></i>
 </a>
 
-<!-- Logout Modal-->
+<!-- Logout Modal
 <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
 	aria-labelledby="exampleModalLabel" aria-hidden="true">
 	<div class="modal-dialog" role="document">
@@ -41,7 +41,7 @@
 		</div>
 	</div>
 </div>
-
+-->
 <!-- Bootstrap core JavaScript-->
 <!--     <script src="../resources/vendor/jquery/jquery.min.js"></script>  -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -52,7 +52,6 @@
 
 <!-- Custom scripts for all pages-->
 <script src="../resources/js/sb-admin-2.min.js"></script>
-
 <!-- Page level plugins -->
 
 <!-- <script src="../resources/vendor/datatables/jquery.dataTables.min.js"></script> -->

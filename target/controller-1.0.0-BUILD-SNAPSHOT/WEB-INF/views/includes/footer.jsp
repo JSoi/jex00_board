@@ -43,8 +43,7 @@
 </div>
 
 <!-- Bootstrap core JavaScript-->
-<!-- 
-    <script src="../resources/vendor/jquery/jquery.min.js"></script> -->
+<!--     <script src="../resources/vendor/jquery/jquery.min.js"></script>  -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="../resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
@@ -54,17 +53,17 @@
 <!-- Custom scripts for all pages-->
 <script src="../resources/js/sb-admin-2.min.js"></script>
 
-<!-- Page level plugins
+<!-- Page level plugins -->
 
-<script src="../resources/vendor/datatables/jquery.dataTables.min.js"></script> -->
+<!-- <script src="../resources/vendor/datatables/jquery.dataTables.min.js"></script> -->
 <script
 	src="../resources/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
 <!-- Page level custom scripts -->
-<script src="../resources/js/demo/datatables-demo.js"></script>
+<!-- <script src="../resources/js/demo/datatables-demo.js"></script> -->
 <script>
 $(document).ready(function(){
-	$(;#dataTables-example;).DataTable({
+	$(#dataTables-example;).DataTable({
 		responsive:true
 	});
 })$(".sidebar-nav")

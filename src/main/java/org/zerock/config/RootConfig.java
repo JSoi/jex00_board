@@ -14,7 +14,7 @@ import com.zaxxer.hikari.HikariDataSource;
 
 @Configuration
 @MapperScan(basePackages= {"org.zerock.mapper"})
-@ComponentScan(basePackages= {"org.zerock.domain","org.zerock.controller","org.zerock.domain","org.zerock.service"})
+@ComponentScan(basePackages= {"org.zerock.domain","org.zerock.controller","org.zerock.service"})
 public class RootConfig {
 
 	@Bean

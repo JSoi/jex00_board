@@ -130,7 +130,7 @@
 
 				<div class="modal-body">처리가 완료되었습니다.</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="button" id="btnClose" class="btn btn-default" data-dismiss="modal">Close</button>
 					<button type="button" class="btn btn-primary">Save changes</button>
 				</div>
 			</div>
@@ -159,7 +159,11 @@
 				$("#regBtn").on("click", function() {
 					self.location = "/board/register";
 				});
-				
+
+				$("#btnClose").on("click", function(e) {
+					$(".modal").modal("hide");
+				});
+
 			});
 
 	var actionForm = $("#actionForm");
@@ -177,21 +181,20 @@
 						+ $(this).attr("href") + "'>");
 				actionForm.attr("action", "/board/get");
 				actionForm.submit();
-	});
+			});
 
-	var searchForm =$("#searchForm");
-	$("#searchForm button").on("click",function(e){
-		if(!searchForm.find("option:selected").val()){
-		alert("검색종류를 선택하세요");
-		return false;
+	var searchForm = $("#searchForm");
+	$("#searchForm button").on("click", function(e) {
+		if (!searchForm.find("option:selected").val()) {
+			alert("검색종류를 선택하세요");
+			return false;
 		}
-		if(!searchForm.find("input[name='keyword']").val()){
-		alert("키워드를 입력하세요");
-		return false;
+		if (!searchForm.find("input[name='keyword']").val()) {
+			alert("키워드를 입력하세요");
+			return false;
 		}
 		searchForm.find("input[name='pageNum']").val("1");
 		e.preventDefault();
 		searchForm.submit();
 	});
-	
 </script>

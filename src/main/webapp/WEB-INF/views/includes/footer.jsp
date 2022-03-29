@@ -62,7 +62,7 @@
 <!-- <script src="../resources/js/demo/datatables-demo.js"></script> -->
 <script>
 $(document).ready(function(){
-	$(#dataTables-example;).DataTable({
+	$(#dataTables-example).DataTable({
 		responsive:true
 	});
 })$(".sidebar-nav")

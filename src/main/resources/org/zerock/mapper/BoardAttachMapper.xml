@@ -5,8 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="org.zerock.mapper.BoardAttachMapper">
 
 	<insert id="insert">
-		insert into tbl_attach(uuid, uploadpath, filename,
-		filetype, bno)
+		insert into tbl_attach(uuid, uploadpath, filename, filetype, bno)
 		values(#{uuid},#{uploadPath},#{fileName},#{fileType},#{bno})
 	</insert>
 	<delete id="delete">
@@ -14,6 +13,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</delete>
 	<select id="findByBno"
 		resultType="org.zerock.domain.BoardAttachVO">
-		select * tbl_attach where bno = #{bno}
+		select * from tbl_attach where bno = #{bno}
 	</select>
 </mapper>

@@ -91,6 +91,9 @@
 						name='replyDate' value='replyDate'>
 				</div>
 			</div>
+			<div class='bigPicutreWrapper'>
+				<div class='bigPicture'></div>
+			</div>
 
 			<div class="modal-footer">
 				<button id='modalModBtn' type="button" class=" btn btn-warning">Modify</button>
@@ -102,11 +105,114 @@
 		</div>
 	</div>
 </div>
+<style>
+.uploadResult {
+	width: 100%;
+	background-color: gray;
+}
+
+.uploadResult ul {
+	display: flex;
+	flex-flow: row;
+	justify-content: center;
+	align-itmes: center;
+}
+
+.uploadResult ul li {
+	list-style: none;
+	padding: 10px;
+	align-content: center;
+	text-align: center;
+}
+
+.uploadResult ul li img {
+	width: 100px;
+}
+
+.uploadResult ul li span {
+	color: white;
+}
+
+.bigPictureWrapper {
+	position: absolute;
+	display: none;
+	justify-content: center;
+	align-items: center;
+	top: 0%;
+	width: 100%;
+	height: 100%;
+	background-color: gray;
+	z-index: 100;
+	background: (255, 255, 255, 255, 0.5)
+}
+
+.bigPicture {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.bigPicture img {
+	width: 600px;
+}
+</style>
+
+<div class="row">
+	<div class="col-log-12">
+		<div class="panel-heading">Files</div>
+		<div class="panel-body">
+			<div class='uploadResult'>
+				<ul></ul>
+			</div>
+		</div>
+	</div>
+</div>
 
 <%@include file="../includes/footer.jsp"%>
 <!--  <script src="${pageContext.request.contextPath}/resources/js/reply.js"></script>
 -->
 <script src="../resources/js/reply.js"></script>
+<script>
+$(document).ready(function(){
+	(function(){
+		var bno = '<c:out value="${board.bno}" />';
+		$.getJSON("/board/getAttachList", {bno:bno}, function(arr){
+			console.log(arr);
+		}); // end getjson
+	})();// end function
+});
+
+$.getJSON("/board/getAttachList",{bno:bno}, function(arr){
+	console.log(arr);
+	var str = "";
+	$(arr).each(function(i, attach){
+			if (attach.fileType) {
+				var fileCallPath = encodeURIComponent(attach.uploadPath
+						+ "/s_" + attach.uuid + "_" + attach.fileName);
+				str += "<li data-path='"+attach.uploadPath+"' data-uuid='"+attach.uuid+"' data-filename='"+attach.fileName+"' data-type='"+attach.fileType+"'><div>";
+				str += "<img src='/display?fileName="
+						+ fileCallPath + "'>";
+				str += "</div>";
+				str += "</li>";
+			} else {
+				str += "<li data-path='" + attach.uploadPath
+						+ "' data-uuid='" + attach.uuid
+						+ "' data-fileName='" + attach.fileName
+						+ "' data-type='" + attach.fileType
+						+ "'><div>";
+				str += "<span> " + attach.fileName + "</span><br>";
+				str += "<img src='/resources/img/attach.png'>";
+				str += "</div></li>";
+
+			}
+		});
+		$(".uploadResult ul").html(str);
+}); //getjson end
+
+
+</script>
+
 <script type="text/javascript">
 	$(document)
 			.ready(

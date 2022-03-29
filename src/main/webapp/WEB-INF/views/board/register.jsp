@@ -119,6 +119,7 @@
 				str += "<input type ='hidden' name ='attachList["+i+"].uploadPath' value='"+jobj.data("path")+"'>";
 				str += "<input type ='hidden' name ='attachList["+i+"].fileType' value='"+jobj.data("type")+"'>";
 			});
+			console.log("str check(register) : " + str);
 			formObj.append(str).submit();
 		});
 		var regex = new RegExp("(.*?)\.(exe|sh|zip|alz)$");
@@ -192,7 +193,7 @@
 						function(i, obj) {
 							console.log("i : " + i);
 							console.log("obj : " + obj);
-							if (!obj.fileType) {
+							if (obj.fileType) { // image
 								var fileCallPath = encodeURIComponent(obj.uploadPath
 										+ "/s_" + obj.uuid + "_" + obj.fileName);
 								str += "<li data-path='"+obj.uploadPath+"' data-uuid='"+obj.uuid+"' data-filename='"+obj.fileName+"' data-type='"+obj.fileType+"'><div>";

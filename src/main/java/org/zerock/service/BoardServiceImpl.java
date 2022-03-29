@@ -17,19 +17,19 @@ import lombok.extern.log4j.Log4j;
 @Service
 @Log4j
 public class BoardServiceImpl implements BoardService {
-	@Setter(onMethod_ = { @Autowired })
+	@Setter(onMethod_ = @Autowired)
 	private BoardMapper mapper;
 
-	@Setter(onMethod_ = { @Autowired })
+	@Setter(onMethod_ = @Autowired)
 	private BoardAttachMapper attachMapper;
 
 	@Transactional
 	@Override
 	public void register(BoardVO board) {
-		// TODO Auto-generated method stub
+
 		log.info("register......." + board);
 		mapper.insertSelectKey(board);
-		if (board.getAttachList() == null | board.getAttachList().size() <= 0) {
+		if (board.getAttachList() == null || board.getAttachList().size() <= 0) {
 			return;
 		}
 		board.getAttachList().forEach(attach -> {
@@ -75,7 +75,7 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public List<BoardAttachVO> getAttatchList(Long bno) {
+	public List<BoardAttachVO> getAttachList(Long bno) {
 		log.info("get Attach List by bno");
 		return attachMapper.findByBno(bno);
 	}
